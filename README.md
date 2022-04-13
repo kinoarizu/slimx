@@ -62,8 +62,4 @@ To contributing to this project, you can explore [TMDB API Docs](https://develop
 
 IMPORTANT: You must follow the clean architecture and TDD proccess to add a new feature.
 
-## Contributors
-
-* [@codestronaut](https://github.com/codestronaut)
-
 Thanks 😊
