@@ -50,7 +50,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
             tabs: [
               Tab(
                 key: Key('movieWatchlistTab'),
-                text: 'Move',
+                text: 'Movie',
               ),
               Tab(
                 key: Key('tvWatchlistTab'),

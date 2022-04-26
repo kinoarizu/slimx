@@ -112,14 +112,14 @@ void main() {
         // Navigate to search
         // Search a movie
         await homeRobot.clickSearchButton();
-        await searchRobot.openFilterDialog();
-        await searchRobot.selectFilterTv();
-        await searchRobot.enterSearchQuery('arcane');
+        await searchRobot.enterMovieQuery('arcane');
+        await searchRobot.goBack();
 
         // Search a tv
-        await searchRobot.openFilterDialog();
-        await searchRobot.selectFilterMovie();
-        await searchRobot.enterSearchQuery('spider');
+        await homeRobot.clickNavigationDrawerButton();
+        await homeRobot.clickTvListTile();
+        await homeRobot.clickSearchButton();
+        await searchRobot.enterTvQuery('spider');
         await searchRobot.goBack();
 
         // Navigate to about page

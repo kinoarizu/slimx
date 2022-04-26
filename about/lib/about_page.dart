@@ -36,7 +36,7 @@ class AboutPage extends StatelessWidget {
                   padding: const EdgeInsets.all(32.0),
                   color: kRichBlack,
                   child: const Text(
-                    'Movie Database (MDB) is a movie and tv series catalog app developed by Aditya Rohman sebagai as a project submission for Flutter Developer Expert course on Dicoding Indonesia.',
+                    'Movie Database (MDB) is a movie and tv series catalog app developed by Abu Aziz sebagai as a project submission for Flutter Developer Expert course on Dicoding Indonesia.',
                     style: TextStyle(fontSize: 16.0),
                     textAlign: TextAlign.justify,
                   ),
