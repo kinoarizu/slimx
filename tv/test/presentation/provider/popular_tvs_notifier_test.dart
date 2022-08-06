@@ -20,9 +20,9 @@ void main() {
     listenerCallCount = 0;
     mockGetPopularTvs = MockGetPopularTvs();
     notifier = PopularTvsNotifier(mockGetPopularTvs)
-      ..addListener(() {
-        listenerCallCount++;
-      });
+    ..addListener(() {
+      listenerCallCount++;
+    });
   });
 
   final tTv = Tv(
@@ -75,7 +75,7 @@ void main() {
     () async {
       // arrange
       when(mockGetPopularTvs.execute())
-          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
       // act
       await notifier.fetchPopularTvs();

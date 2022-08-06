@@ -31,16 +31,16 @@ class TvDetail extends Equatable {
 
   @override
   List<Object?> get props => [
-        backdropPath,
-        episodeRunTime,
-        firstAirDate,
-        genres,
-        id,
-        name,
-        numberOfSeasons,
-        overview,
-        posterPath,
-        voteAverage,
-        voteCount,
-      ];
+    backdropPath,
+    episodeRunTime,
+    firstAirDate,
+    genres,
+    id,
+    name,
+    numberOfSeasons,
+    overview,
+    posterPath,
+    voteAverage,
+    voteCount,
+  ];
 }

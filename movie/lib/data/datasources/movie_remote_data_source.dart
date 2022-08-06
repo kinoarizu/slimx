@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:core/utils/exception.dart';
 import 'package:core/utils/urls.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/media_image_model.dart';
@@ -87,7 +88,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
       return MovieResponse.fromJson(json.decode(response.body)).movieList;
     } else {
       throw ServerException();
-    }
+    } 
   }
 
   @override
@@ -99,5 +100,19 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
     } else {
       throw ServerException();
     }
+  }
+
+  void printObject(Object object) {
+    // Encode your object and then decode your object to Map variable
+    Map jsonMapped = json.decode(json.encode(object)); 
+
+    // Using JsonEncoder for spacing
+    JsonEncoder encoder = const JsonEncoder.withIndent('  '); 
+
+    // encode it to string
+    String prettyPrint = encoder.convert(jsonMapped); 
+
+    // print or debugPrint your object
+    debugPrint(prettyPrint); 
   }
 }

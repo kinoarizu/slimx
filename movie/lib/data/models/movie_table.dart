@@ -21,47 +21,48 @@ class MovieTable extends Equatable {
   });
 
   factory MovieTable.fromMap(Map<String, dynamic> map) => MovieTable(
-      releaseDate: map['releaseDate'],
-      id: map['id'],
-      title: map['title'],
-      posterPath: map['posterPath'],
-      overview: map['overview'],
-      voteAverage: map['voteAverage']);
+    releaseDate: map['releaseDate'],
+    id: map['id'],
+    title: map['title'],
+    posterPath: map['posterPath'],
+    overview: map['overview'],
+    voteAverage: map['voteAverage'],
+  );
 
   factory MovieTable.fromEntity(MovieDetail movie) => MovieTable(
-        releaseDate: movie.releaseDate,
-        id: movie.id,
-        title: movie.title,
-        posterPath: movie.posterPath,
-        overview: movie.overview,
-        voteAverage: movie.voteAverage,
-      );
+    releaseDate: movie.releaseDate,
+    id: movie.id,
+    title: movie.title,
+    posterPath: movie.posterPath,
+    overview: movie.overview,
+    voteAverage: movie.voteAverage,
+  );
 
   Map<String, dynamic> toMap() => {
-        'releaseDate': releaseDate,
-        'id': id,
-        'title': title,
-        'posterPath': posterPath,
-        'overview': overview,
-        'voteAverage': voteAverage,
-      };
+    'releaseDate': releaseDate,
+    'id': id,
+    'title': title,
+    'posterPath': posterPath,
+    'overview': overview,
+    'voteAverage': voteAverage,
+  };
 
   Movie toEntity() => Movie.watchlist(
-        releaseDate: releaseDate,
-        id: id,
-        overview: overview,
-        posterPath: posterPath,
-        title: title,
-        voteAverage: voteAverage,
-      );
+    releaseDate: releaseDate,
+    id: id,
+    overview: overview,
+    posterPath: posterPath,
+    title: title,
+    voteAverage: voteAverage,
+  );
 
   @override
   List<Object?> get props => [
-        releaseDate,
-        id,
-        title,
-        posterPath,
-        overview,
-        voteAverage,
-      ];
+    releaseDate,
+    id,
+    title,
+    posterPath,
+    overview,
+    voteAverage,
+  ];
 }

@@ -23,7 +23,7 @@ void main() {
     () async {
       // arrange
       when(mockTvRepository.getTvRecommendations(tId))
-          .thenAnswer((_) async => Right(tTvs));
+        .thenAnswer((_) async => Right(tTvs));
 
       // act
       final result = await usecase.execute(tId);

@@ -16,8 +16,7 @@ abstract class TvRemoteDataSource {
   Future<List<TvModel>> getPopularTvs();
   Future<List<TvModel>> getTopRatedTvs();
   Future<TvDetailResponse> getTvDetail(int id);
-  Future<List<TvSeasonEpisodeModel>> getTvSeasonEpisodes(
-      int id, int seasonNumber);
+  Future<List<TvSeasonEpisodeModel>> getTvSeasonEpisodes(int id, int seasonNumber);
   Future<List<TvModel>> getTvRecommendations(int id);
   Future<List<TvModel>> searchTvs(String query);
   Future<MediaImageModel> getTvImages(int id);

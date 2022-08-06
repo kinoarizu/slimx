@@ -20,7 +20,7 @@ void main() {
     () async {
       // arrange
       when(mockTvRepository.getWatchlistTvs())
-          .thenAnswer((_) async => Right(testTvList));
+        .thenAnswer((_) async => Right(testTvList));
 
       // act
       final result = await usecase.execute();

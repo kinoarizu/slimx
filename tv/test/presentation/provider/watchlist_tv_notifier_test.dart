@@ -22,8 +22,8 @@ void main() {
     provider = WatchlistTvNotifier(
       getWatchlistTvs: mockGetWatchlistTvs,
     )..addListener(() {
-        listenerCallCount++;
-      });
+      listenerCallCount++;
+    });
   });
 
   test(
@@ -31,7 +31,7 @@ void main() {
     () async {
       // arrange
       when(mockGetWatchlistTvs.execute())
-          .thenAnswer((_) async => Right([testWatchlistTv]));
+        .thenAnswer((_) async => Right([testWatchlistTv]));
 
       // act
       await provider.fetchWatchlistTvs();
@@ -48,7 +48,7 @@ void main() {
     () async {
       // arrange
       when(mockGetWatchlistTvs.execute()).thenAnswer(
-          (_) async => const Left(DatabaseFailure('Can\'t get data')));
+        (_) async => const Left(DatabaseFailure('Can\'t get data')));
 
       // act
       await provider.fetchWatchlistTvs();

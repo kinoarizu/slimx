@@ -22,7 +22,7 @@ void main() {
     () async {
       // arrange
       when(mockMovieRepository.removeWatchlist(testMovieDetail))
-          .thenAnswer((_) async => const Right('Removed from watchlist'));
+        .thenAnswer((_) async => const Right('Removed from watchlist'));
 
       // act
       final result = await usecase.execute(testMovieDetail);

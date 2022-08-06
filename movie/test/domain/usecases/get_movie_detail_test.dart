@@ -22,7 +22,7 @@ void main() {
     () async {
       // arrange
       when(mockMovieRepository.getMovieDetail(tId))
-          .thenAnswer((_) async => const Right(testMovieDetail));
+        .thenAnswer((_) async => const Right(testMovieDetail));
 
       // act
       final result = await usecase.execute(tId);

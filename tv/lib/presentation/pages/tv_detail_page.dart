@@ -1,8 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:core/styles/text_styles.dart';
-import 'package:core/utils/state_enum.dart';
-import 'package:core/utils/urls.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -316,7 +314,7 @@ class _TvDetailContentState extends State<TvDetailContent>
                 indicator: const BoxDecoration(
                   border: Border(
                     top: BorderSide(
-                      color: Colors.redAccent,
+                      color: kIndigo,
                       style: BorderStyle.solid,
                       width: 4.0,
                     ),

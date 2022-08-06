@@ -33,8 +33,7 @@ void main() {
     backdropPath: '/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg',
     genreIds: [28, 12, 878],
     id: 634649,
-    overview:
-        'Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
+    overview: 'Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
     posterPath: '/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg',
     releaseDate: '2021-12-15',
     title: 'Spider-Man: No Way Home',
@@ -46,8 +45,7 @@ void main() {
     backdropPath: '/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg',
     genreIds: const [28, 12, 878],
     id: 634649,
-    overview:
-        'Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
+    overview: 'Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
     posterPath: '/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg',
     releaseDate: '2021-12-15',
     title: 'Spider-Man: No Way Home',
@@ -64,7 +62,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getNowPlayingMovies())
-            .thenAnswer((_) async => tMovieModelList);
+          .thenAnswer((_) async => tMovieModelList);
 
         // act
         final result = await repository.getNowPlayingMovies();
@@ -85,7 +83,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getNowPlayingMovies())
-            .thenThrow(ServerException());
+          .thenThrow(ServerException());
 
         // act
         final result = await repository.getNowPlayingMovies();
@@ -101,7 +99,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getNowPlayingMovies()).thenThrow(
-            const SocketException('Failed to connect to the network'));
+          const SocketException('Failed to connect to the network'));
 
         // act
         final result = await repository.getNowPlayingMovies();
@@ -110,8 +108,7 @@ void main() {
         verify(mockRemoteDataSource.getNowPlayingMovies());
         expect(
           result,
-          equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))),
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))),
         );
       },
     );
@@ -123,7 +120,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getPopularMovies())
-            .thenAnswer((_) async => tMovieModelList);
+          .thenAnswer((_) async => tMovieModelList);
 
         // act
         final result = await repository.getPopularMovies();
@@ -144,7 +141,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getPopularMovies())
-            .thenThrow(ServerException());
+          .thenThrow(ServerException());
 
         // act
         final result = await repository.getPopularMovies();
@@ -160,7 +157,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getPopularMovies()).thenThrow(
-            const SocketException('Failed to connect to the network'));
+          const SocketException('Failed to connect to the network'));
 
         // act
         final result = await repository.getPopularMovies();
@@ -169,8 +166,7 @@ void main() {
         verify(mockRemoteDataSource.getPopularMovies());
         expect(
           result,
-          equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))),
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))),
         );
       },
     );
@@ -182,17 +178,13 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getTopRatedMovies())
-            .thenAnswer((_) async => tMovieModelList);
+          .thenAnswer((_) async => tMovieModelList);
 
         // act
         final result = await repository.getTopRatedMovies();
 
         // assert
         verify(mockRemoteDataSource.getTopRatedMovies());
-        /* 
-          workaround to test List in Right.
-          Issue: https://github.com/spebbe/dartz/issues/80 
-        */
         final resultList = result.getOrElse(() => []);
         expect(resultList, equals(tMovieList));
       },
@@ -203,7 +195,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getTopRatedMovies())
-            .thenThrow(ServerException());
+          .thenThrow(ServerException());
 
         // act
         final result = await repository.getTopRatedMovies();
@@ -219,7 +211,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getTopRatedMovies()).thenThrow(
-            const SocketException('Failed to connect to the network'));
+          const SocketException('Failed to connect to the network'));
 
         // act
         final result = await repository.getTopRatedMovies();
@@ -228,8 +220,7 @@ void main() {
         verify(mockRemoteDataSource.getTopRatedMovies());
         expect(
           result,
-          equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))),
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))),
         );
       },
     );
@@ -255,7 +246,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieDetail(tId))
-            .thenAnswer((_) async => tMovieResponse);
+          .thenAnswer((_) async => tMovieResponse);
 
         // act
         final result = await repository.getMovieDetail(tId);
@@ -271,7 +262,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieDetail(tId))
-            .thenThrow(ServerException());
+          .thenThrow(ServerException());
 
         // act
         final result = await repository.getMovieDetail(tId);
@@ -287,7 +278,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieDetail(tId)).thenThrow(
-            const SocketException('Failed to connect to the network'));
+          const SocketException('Failed to connect to the network'));
 
         // act
         final result = await repository.getMovieDetail(tId);
@@ -296,8 +287,7 @@ void main() {
         verify(mockRemoteDataSource.getMovieDetail(tId));
         expect(
           result,
-          equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))),
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))),
         );
       },
     );
@@ -312,7 +302,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieRecommendations(tId))
-            .thenAnswer((_) async => tMovieList);
+          .thenAnswer((_) async => tMovieList);
 
         // act
         final result = await repository.getMovieRecommendations(tId);
@@ -333,7 +323,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieRecommendations(tId))
-            .thenThrow(ServerException());
+          .thenThrow(ServerException());
 
         // act
         final result = await repository.getMovieRecommendations(tId);
@@ -349,7 +339,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieRecommendations(tId)).thenThrow(
-            const SocketException('Failed to connect to the network'));
+          const SocketException('Failed to connect to the network'));
 
         // act
         final result = await repository.getMovieRecommendations(tId);
@@ -358,8 +348,7 @@ void main() {
         verify(mockRemoteDataSource.getMovieRecommendations(tId));
         expect(
           result,
-          equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))),
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))),
         );
       },
     );
@@ -373,7 +362,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.searchMovies(tQuery))
-            .thenAnswer((_) async => tMovieModelList);
+          .thenAnswer((_) async => tMovieModelList);
 
         // act
         final result = await repository.searchMovies(tQuery);
@@ -394,7 +383,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.searchMovies(tQuery))
-            .thenThrow(ServerException());
+          .thenThrow(ServerException());
 
         // act
         final result = await repository.searchMovies(tQuery);
@@ -410,7 +399,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.searchMovies(tQuery)).thenThrow(
-            const SocketException('Failed to connect to the network'));
+          const SocketException('Failed to connect to the network'));
 
         // act
         final result = await repository.searchMovies(tQuery);
@@ -419,8 +408,7 @@ void main() {
         verify(mockRemoteDataSource.searchMovies(tQuery));
         expect(
           result,
-          equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))),
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))),
         );
       },
     );
@@ -440,7 +428,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieImages(tId))
-            .thenAnswer((_) async => tMovieImages);
+          .thenAnswer((_) async => tMovieImages);
 
         // act
         final result = await repository.getMovieImages(tId);
@@ -456,7 +444,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieImages(tId))
-            .thenThrow(ServerException());
+          .thenThrow(ServerException());
 
         // act
         final result = await repository.getMovieImages(tId);
@@ -472,7 +460,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getMovieImages(tId)).thenThrow(
-            const SocketException('Failed to connect to the network'));
+          const SocketException('Failed to connect to the network'));
 
         // act
         final result = await repository.getMovieImages(tId);
@@ -481,8 +469,7 @@ void main() {
         verify(mockRemoteDataSource.getMovieImages(tId));
         expect(
           result,
-          equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))),
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))),
         );
       },
     );
@@ -494,7 +481,7 @@ void main() {
       () async {
         // arrange
         when(mockLocalDataSource.insertWatchlist(testMovieTable))
-            .thenAnswer((_) async => 'Added to watchlist');
+          .thenAnswer((_) async => 'Added to watchlist');
 
         // act
         final result = await repository.saveWatchlist(testMovieDetail);
@@ -510,7 +497,7 @@ void main() {
       () async {
         // arrange
         when(mockLocalDataSource.insertWatchlist(testMovieTable))
-            .thenThrow(DatabaseException('Failed to add watchlist'));
+          .thenThrow(DatabaseException('Failed to add watchlist'));
 
         // act
         final result = await repository.saveWatchlist(testMovieDetail);
@@ -531,7 +518,7 @@ void main() {
       () async {
         // arrange
         when(mockLocalDataSource.removeWatchlist(testMovieTable))
-            .thenAnswer((_) async => 'Removed from watchlist');
+          .thenAnswer((_) async => 'Removed from watchlist');
 
         // act
         final result = await repository.removeWatchlist(testMovieDetail);
@@ -547,7 +534,7 @@ void main() {
       () async {
         // arrange
         when(mockLocalDataSource.removeWatchlist(testMovieTable))
-            .thenThrow(DatabaseException('Failed to remove watchlist'));
+          .thenThrow(DatabaseException('Failed to remove watchlist'));
 
         // act
         final result = await repository.removeWatchlist(testMovieDetail);
@@ -571,7 +558,7 @@ void main() {
         // arrange
 
         when(mockLocalDataSource.getMovieById(tId))
-            .thenAnswer((_) async => null);
+          .thenAnswer((_) async => null);
 
         // act
         final result = await repository.isAddedToWatchlist(tId);
@@ -589,7 +576,7 @@ void main() {
       () async {
         // arrange
         when(mockLocalDataSource.getWatchlistMovies())
-            .thenAnswer((_) async => [testMovieTable]);
+          .thenAnswer((_) async => [testMovieTable]);
 
         // act
         final result = await repository.getWatchlistMovies();

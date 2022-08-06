@@ -1,8 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:core/utils/state_enum.dart';
-import 'package:core/utils/urls.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -29,19 +28,19 @@ class _MainMoviePageState extends State<MainMoviePage> {
 
     Future.microtask(() {
       Provider.of<MovieListNotifier>(context, listen: false)
-          .fetchNowPlayingMovies()
-          .whenComplete(
-            () => Provider.of<MovieImagesNotifier>(context, listen: false)
-                .fetchMovieImages(
-              Provider.of<MovieListNotifier>(context, listen: false)
-                  .nowPlayingMovies[0]
-                  .id,
-            ),
-          );
+      .fetchNowPlayingMovies().whenComplete(
+        () => Provider.of<MovieImagesNotifier>(context, listen: false)
+        .fetchMovieImages(
+          Provider.of<MovieListNotifier>(context, listen: false)
+          .nowPlayingMovies[0].id,
+        ),
+      );
+
       Provider.of<MovieListNotifier>(context, listen: false)
-          .fetchPopularMovies();
+      .fetchPopularMovies();
+
       Provider.of<MovieListNotifier>(context, listen: false)
-          .fetchTopRatedMovies();
+      .fetchTopRatedMovies();
     });
   }
 
@@ -63,7 +62,7 @@ class _MainMoviePageState extends State<MainMoviePage> {
                       viewportFraction: 1.0,
                       onPageChanged: (index, reason) {
                         Provider.of<MovieImagesNotifier>(context, listen: false)
-                            .fetchMovieImages(data.nowPlayingMovies[index].id);
+                        .fetchMovieImages(data.nowPlayingMovies[index].id);
                       },
                     ),
                     items: data.nowPlayingMovies.map(
@@ -103,8 +102,7 @@ class _MainMoviePageState extends State<MainMoviePage> {
                                     ],
                                     stops: [0, 0.3, 0.5, 1],
                                   ).createShader(
-                                    Rect.fromLTRB(
-                                        0, 0, rect.width, rect.height),
+                                    Rect.fromLTRB(0, 0, rect.width, rect.height),
                                   );
                                 },
                                 blendMode: BlendMode.dstIn,
@@ -120,15 +118,13 @@ class _MainMoviePageState extends State<MainMoviePage> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 16.0),
+                                      padding: const EdgeInsets.only(bottom: 16.0),
                                       child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           const Icon(
                                             Icons.circle,
-                                            color: Colors.redAccent,
+                                            color: kIndigo,
                                             size: 16.0,
                                           ),
                                           const SizedBox(width: 4.0),
@@ -142,12 +138,10 @@ class _MainMoviePageState extends State<MainMoviePage> {
                                       ),
                                     ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 16.0),
+                                      padding: const EdgeInsets.only(bottom: 16.0),
                                       child: Consumer<MovieImagesNotifier>(
                                         builder: (context, data, child) {
-                                          if (data.movieImagesState ==
-                                              RequestState.loaded) {
+                                          if (data.movieImagesState == RequestState.loaded) {
                                             if (data.movieImages.logoPaths.isEmpty || data.movieImages.logoPaths[0].contains('svg')) {
                                               return Text(item.title!);
                                             }
@@ -157,15 +151,13 @@ class _MainMoviePageState extends State<MainMoviePage> {
                                                 data.movieImages.logoPaths[0],
                                               ),
                                             );
-                                          } else if (data.movieImagesState ==
-                                              RequestState.error) {
+                                          } else if (data.movieImagesState == RequestState.error) {
                                             return const Center(
                                               child: Text('Load data failed'),
                                             );
                                           } else {
                                             return const Center(
-                                              child:
-                                                  CircularProgressIndicator(),
+                                              child: CircularProgressIndicator(),
                                             );
                                           }
                                         },

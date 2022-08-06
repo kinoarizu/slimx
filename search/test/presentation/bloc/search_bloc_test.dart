@@ -30,8 +30,7 @@ void main() {
     backdropPath: '/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg',
     genreIds: const [28, 12, 878],
     id: 634649,
-    overview:
-        'Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
+    overview: 'Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
     posterPath: '/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg',
     releaseDate: '2021-12-15',
     title: 'Spider-Man: No Way Home',
@@ -49,8 +48,7 @@ void main() {
     genreIds: const [16, 10765, 10759, 18],
     id: 94605,
     name: 'Arcane',
-    overview:
-        'Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.',
+    overview: 'Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.',
     posterPath: '/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg',
     voteAverage: 9.1,
     voteCount: 1451,
@@ -68,7 +66,7 @@ void main() {
     'should emit [loading, has data] when movie data is gotten successfully',
     build: () {
       when(mockSearchMovies.execute(tMovieQuery))
-          .thenAnswer((_) async => Right(tMovieList));
+        .thenAnswer((_) async => Right(tMovieList));
       return movieSearchBloc;
     },
     act: (bloc) => bloc.add(const OnQueryChanged(tMovieQuery)),
@@ -86,7 +84,7 @@ void main() {
     'should emit [loading, error] when search movie is unsuccessful',
     build: () {
       when(mockSearchMovies.execute(tMovieQuery))
-          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
       return movieSearchBloc;
     },
     act: (bloc) => bloc.add(const OnQueryChanged(tMovieQuery)),
@@ -104,7 +102,7 @@ void main() {
     'should emit [loading, has data] when tv data is gotten successfully',
     build: () {
       when(mockSearchTvs.execute(tTvQuery))
-          .thenAnswer((_) async => Right(tTvList));
+        .thenAnswer((_) async => Right(tTvList));
       return tvSearchBloc;
     },
     act: (bloc) => bloc.add(const OnQueryChanged(tTvQuery)),
@@ -122,7 +120,7 @@ void main() {
     'should emit [loading, error] when search tv is unsuccessful',
     build: () {
       when(mockSearchTvs.execute(tTvQuery))
-          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
       return tvSearchBloc;
     },
     act: (bloc) => bloc.add(const OnQueryChanged(tTvQuery)),

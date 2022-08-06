@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie/movie.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/tv.dart';
+
 import '../../core.dart';
 
 class WatchlistPage extends StatefulWidget {
@@ -17,12 +18,14 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<WatchlistMovieNotifier>(context, listen: false)
-            .fetchWatchlistMovies());
-    Future.microtask(() =>
-        Provider.of<WatchlistTvNotifier>(context, listen: false)
-            .fetchWatchlistTvs());
+
+    Future.microtask(() => Provider.of<WatchlistMovieNotifier>(
+      context, listen: false,
+    ).fetchWatchlistMovies());
+    
+    Future.microtask(() => Provider.of<WatchlistTvNotifier>(
+      context, listen: false,
+    ).fetchWatchlistTvs());
   }
 
   @override
@@ -33,10 +36,19 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
 
   @override
   void didPopNext() {
-    Provider.of<WatchlistMovieNotifier>(context, listen: false)
-        .fetchWatchlistMovies();
-    Provider.of<WatchlistTvNotifier>(context, listen: false)
-        .fetchWatchlistTvs();
+    Provider.of<WatchlistMovieNotifier>(
+      context, listen: false,
+    ).fetchWatchlistMovies();
+
+    Provider.of<WatchlistTvNotifier>(
+      context, listen: false,
+    ).fetchWatchlistTvs();
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
   }
 
   @override
@@ -57,7 +69,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
                 text: 'Tv',
               ),
             ],
-            indicatorColor: Colors.redAccent,
+            indicatorColor: kIndigo,
             indicatorWeight: 4.0,
           ),
         ),
@@ -69,11 +81,5 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    routeObserver.unsubscribe(this);
-    super.dispose();
   }
 }

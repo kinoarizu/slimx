@@ -21,48 +21,48 @@ class TvTable extends Equatable {
   });
 
   factory TvTable.fromMap(Map<String, dynamic> map) => TvTable(
-        firstAirDate: map['firstAirDate'],
-        id: map['id'],
-        name: map['name'],
-        overview: map['overview'],
-        posterPath: map['posterPath'],
-        voteAverage: map['voteAverage'],
-      );
+    firstAirDate: map['firstAirDate'],
+    id: map['id'],
+    name: map['name'],
+    overview: map['overview'],
+    posterPath: map['posterPath'],
+    voteAverage: map['voteAverage'],
+  );
 
   factory TvTable.fromEntity(TvDetail tv) => TvTable(
-        firstAirDate: tv.firstAirDate,
-        id: tv.id,
-        name: tv.name,
-        overview: tv.overview,
-        posterPath: tv.posterPath,
-        voteAverage: tv.voteAverage,
-      );
+    firstAirDate: tv.firstAirDate,
+    id: tv.id,
+    name: tv.name,
+    overview: tv.overview,
+    posterPath: tv.posterPath,
+    voteAverage: tv.voteAverage,
+  );
 
   Map<String, dynamic> toMap() => {
-        'firstAirDate': firstAirDate,
-        'id': id,
-        'name': name,
-        'overview': overview,
-        'posterPath': posterPath,
-        'voteAverage': voteAverage,
-      };
+    'firstAirDate': firstAirDate,
+    'id': id,
+    'name': name,
+    'overview': overview,
+    'posterPath': posterPath,
+    'voteAverage': voteAverage,
+  };
 
   Tv toEntity() => Tv.watchList(
-        firstAirDate: firstAirDate,
-        id: id,
-        name: name,
-        overview: overview,
-        posterPath: posterPath,
-        voteAverage: voteAverage,
-      );
+    firstAirDate: firstAirDate,
+    id: id,
+    name: name,
+    overview: overview,
+    posterPath: posterPath,
+    voteAverage: voteAverage,
+  );
 
   @override
   List<Object?> get props => [
-        firstAirDate,
-        id,
-        name,
-        overview,
-        posterPath,
-        voteAverage,
-      ];
+    firstAirDate,
+    id,
+    name,
+    overview,
+    posterPath,
+    voteAverage,
+  ];
 }

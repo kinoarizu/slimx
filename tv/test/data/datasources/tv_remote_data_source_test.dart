@@ -32,9 +32,8 @@ void main() {
       'should return list of tv model when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse(Urls.onTheAirTvs))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/tv.json'), 200));
+        when(mockHttpClient.get(Uri.parse(Urls.onTheAirTvs)))
+          .thenAnswer((_) async => http.Response(readJson('helpers/dummy_responses/tv.json'), 200));
 
         // act
         final result = await dataSource.getOnTheAirTvs();
@@ -49,7 +48,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.onTheAirTvs)))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getOnTheAirTvs();
@@ -65,9 +64,8 @@ void main() {
       'should return list of tv model when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse(Urls.popularTvs))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/tv.json'), 200));
+        when(mockHttpClient.get(Uri.parse(Urls.popularTvs)))
+          .thenAnswer((_) async => http.Response(readJson('helpers/dummy_responses/tv.json'), 200));
 
         // act
         final result = await dataSource.getPopularTvs();
@@ -82,7 +80,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.popularTvs)))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getPopularTvs();
@@ -98,9 +96,8 @@ void main() {
       'should return list of tv model when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse(Urls.topRatedTvs))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/tv.json'), 200));
+        when(mockHttpClient.get(Uri.parse(Urls.topRatedTvs)))
+          .thenAnswer((_) async => http.Response(readJson('helpers/dummy_responses/tv.json'), 200));
 
         // act
         final result = await dataSource.getTopRatedTvs();
@@ -115,7 +112,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.topRatedTvs)))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getTopRatedTvs();
@@ -136,9 +133,8 @@ void main() {
       'should return tv detail when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse(Urls.tvDetail(tId)))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/tv_detail.json'), 200));
+        when(mockHttpClient.get(Uri.parse(Urls.tvDetail(tId))))
+          .thenAnswer((_) async => http.Response(readJson('helpers/dummy_responses/tv_detail.json'), 200));
 
         // act
         final result = await dataSource.getTvDetail(tId);
@@ -153,7 +149,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.tvDetail(tId))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getTvDetail(tId);
@@ -176,8 +172,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.tvSeasons(tId, tSeasonNumber))))
-            .thenAnswer((_) async => http.Response(
-                readJson('helpers/dummy_responses/tv_season.json'), 200));
+          .thenAnswer((_) async => http.Response(readJson('helpers/dummy_responses/tv_season.json'), 200));
 
         // act
         final result = await dataSource.getTvSeasonEpisodes(tId, tSeasonNumber);
@@ -192,7 +187,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.tvSeasons(tId, tSeasonNumber))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getTvSeasonEpisodes(tId, tSeasonNumber);
@@ -214,9 +209,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.tvRecommendations(tId))))
-            .thenAnswer((_) async => http.Response(
-                readJson('helpers/dummy_responses/tv_recommendations.json'),
-                200));
+          .thenAnswer((_) async => http.Response(readJson('helpers/dummy_responses/tv_recommendations.json'), 200));
 
         // act
         final result = await dataSource.getTvRecommendations(tId);
@@ -231,7 +224,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.tvRecommendations(tId))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getTvRecommendations(tId);
@@ -252,9 +245,8 @@ void main() {
       'should return list of tv model when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse(Urls.searchTvs(tQuery)))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/search_tv.json'), 200));
+        when(mockHttpClient.get(Uri.parse(Urls.searchTvs(tQuery))))
+          .thenAnswer((_) async => http.Response(readJson('helpers/dummy_responses/search_tv.json'), 200));
 
         // act
         final result = await dataSource.searchTvs(tQuery);
@@ -269,7 +261,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.searchTvs(tQuery))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.searchTvs(tQuery);
@@ -290,9 +282,8 @@ void main() {
       'should return tv images when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse(Urls.tvImages(tId)))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/images.json'), 200));
+        when(mockHttpClient.get(Uri.parse(Urls.tvImages(tId))))
+          .thenAnswer( (_) async => http.Response(readJson('helpers/dummy_responses/images.json'), 200));
 
         // act
         final result = await dataSource.getTvImages(tId);
@@ -307,7 +298,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.tvImages(tId))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getTvImages(tId);

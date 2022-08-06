@@ -20,9 +20,9 @@ void main() {
     listenerCallCount = 0;
     mockGetTopRatedTvs = MockGetTopRatedTvs();
     notifier = TopRatedTvsNotifier(mockGetTopRatedTvs)
-      ..addListener(() {
-        listenerCallCount++;
-      });
+    ..addListener(() {
+      listenerCallCount++;
+    });
   });
 
   final tTv = Tv(
@@ -44,7 +44,7 @@ void main() {
     () async {
       // arrange
       when(mockGetTopRatedTvs.execute())
-          .thenAnswer((_) async => Right(tTvList));
+        .thenAnswer((_) async => Right(tTvList));
 
       // act
       notifier.fetchTopRatedTvs();
@@ -60,7 +60,7 @@ void main() {
     () async {
       // arrange
       when(mockGetTopRatedTvs.execute())
-          .thenAnswer((_) async => Right(tTvList));
+        .thenAnswer((_) async => Right(tTvList));
 
       // act
       await notifier.fetchTopRatedTvs();
@@ -77,7 +77,7 @@ void main() {
     () async {
       // arrange
       when(mockGetTopRatedTvs.execute())
-          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
       // act
       await notifier.fetchTopRatedTvs();

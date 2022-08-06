@@ -23,7 +23,7 @@ void main() {
     () async {
       // arrange
       when(mockTvRepository.searchTvs(tQuery))
-          .thenAnswer((_) async => Right(tTvs));
+        .thenAnswer((_) async => Right(tTvs));
 
       // act
       final result = await usecase.execute(tQuery);

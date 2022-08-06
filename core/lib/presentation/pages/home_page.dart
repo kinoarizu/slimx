@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movie/presentation/pages/main_movie_page.dart';
+import 'package:movie/movie.dart';
 import 'package:provider/provider.dart';
-import 'package:tv/presentation/pages/main_tv_page.dart';
+import 'package:tv/tv.dart';
 
 import '../../core.dart';
 import '../../utils/routes.dart';
 import '../provider/home_notifier.dart';
-
 import 'watchlist_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,9 +55,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  void toggle() => _drawerAnimationController.isDismissed
-      ? _drawerAnimationController.forward()
-      : _drawerAnimationController.reverse();
+  void toggle() {
+    if (_drawerAnimationController.isDismissed) {
+      _drawerAnimationController.forward();
+    } else {
+      _drawerAnimationController.reverse();
+    }
+  }
 
   bool _scrollListener(ScrollNotification scrollInfo) {
     if (scrollInfo.metrics.axis == Axis.vertical) {
@@ -140,9 +143,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             ListTile(
                               key: const Key('movieListTile'),
                               onTap: () {
-                                Provider.of<HomeNotifier>(context,
-                                        listen: false)
-                                    .setState(GeneralContentType.movie);
+                                Provider.of<HomeNotifier>(context, listen: false)
+                                .setState(GeneralContentType.movie);
                                 toggle();
                               },
                               leading: const Icon(Icons.movie),
@@ -152,7 +154,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               iconColor: Colors.white70,
                               textColor: Colors.white70,
                               selectedColor: Colors.white,
-                              selectedTileColor: Colors.redAccent,
+                              selectedTileColor: kIndigo,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
@@ -160,9 +162,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             ListTile(
                               key: const Key('tvListTile'),
                               onTap: () {
-                                Provider.of<HomeNotifier>(context,
-                                        listen: false)
-                                    .setState(GeneralContentType.tv);
+                                Provider.of<HomeNotifier>(context, listen: false)
+                                .setState(GeneralContentType.tv);
                                 toggle();
                               },
                               leading: const Icon(Icons.tv),
@@ -172,7 +173,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               iconColor: Colors.white70,
                               textColor: Colors.white70,
                               selectedColor: Colors.white,
-                              selectedTileColor: Colors.redAccent,
+                              selectedTileColor: kIndigo,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
@@ -219,6 +220,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         extendBodyBehindAppBar: true,
                         appBar: AppBar(
                           toolbarOpacity: toolbarOpacity,
+                          backgroundColor: _colorTween.value,
+                          elevation: 0.0,
                           leading: IconButton(
                             key: const Key('drawerButton'),
                             icon: const Icon(Icons.menu),
@@ -243,15 +246,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   onPressed: () => Navigator.pushNamed(
                                     context,
                                     state == GeneralContentType.movie
-                                        ? movieSearchRoute
-                                        : tvSearchRoute,
+                                    ? movieSearchRoute
+                                    : tvSearchRoute,
                                   ),
                                 );
                               },
                             ),
                           ],
-                          backgroundColor: _colorTween.value,
-                          elevation: 0.0,
                         ),
                         body: NotificationListener<ScrollNotification>(
                           onNotification: _scrollListener,

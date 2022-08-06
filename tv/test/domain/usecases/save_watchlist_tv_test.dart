@@ -22,7 +22,7 @@ void main() {
     () async {
       // arrange
       when(mockTvRepository.saveWatchlist(testTvDetail))
-          .thenAnswer((_) async => const Right('Added to watchlist'));
+        .thenAnswer((_) async => const Right('Added to watchlist'));
 
       // act
       final result = await usecase.execute(testTvDetail);

@@ -23,8 +23,8 @@ void main() {
     provider = TvSeasonEpisodesNotifier(
       getTvSeasonEpisodes: mockGetTvSeasonEpisodes,
     )..addListener(() {
-        listenerCallCount++;
-      });
+      listenerCallCount++;
+    });
   });
 
   const tId = 1;
@@ -51,7 +51,7 @@ void main() {
       () async {
         // arrange
         when(mockGetTvSeasonEpisodes.execute(tId, tSeasonNumber))
-            .thenAnswer((_) async => Right(tTvSeasonEpisodes));
+          .thenAnswer((_) async => Right(tTvSeasonEpisodes));
 
         // act
         await provider.fetchTvSeasonEpisodes(tId, tSeasonNumber);
@@ -66,7 +66,7 @@ void main() {
       () {
         // arrange
         when(mockGetTvSeasonEpisodes.execute(tId, tSeasonNumber))
-            .thenAnswer((_) async => Right(tTvSeasonEpisodes));
+          .thenAnswer((_) async => Right(tTvSeasonEpisodes));
 
         // act
         provider.fetchTvSeasonEpisodes(tId, tSeasonNumber);
@@ -82,7 +82,7 @@ void main() {
       () async {
         // arrange
         when(mockGetTvSeasonEpisodes.execute(tId, tSeasonNumber))
-            .thenAnswer((_) async => Right(tTvSeasonEpisodes));
+          .thenAnswer((_) async => Right(tTvSeasonEpisodes));
 
         // act
         await provider.fetchTvSeasonEpisodes(tId, tSeasonNumber);
@@ -98,8 +98,8 @@ void main() {
       'should return server failure when error occurred',
       () async {
         // arrange
-        when(mockGetTvSeasonEpisodes.execute(tId, tSeasonNumber)).thenAnswer(
-            (_) async => const Left(ServerFailure('Server failure')));
+        when(mockGetTvSeasonEpisodes.execute(tId, tSeasonNumber))
+          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
         // act
         await provider.fetchTvSeasonEpisodes(tId, tSeasonNumber);

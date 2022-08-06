@@ -24,7 +24,7 @@ void main() {
     () async {
       // arrange
       when(mockTvRepository.getTvSeasonEpisodes(tId, tSeasonNumber))
-          .thenAnswer((_) async => Right(tTvEpisodes));
+        .thenAnswer((_) async => Right(tTvEpisodes));
 
       // act
       final result = await usecase.execute(tId, tSeasonNumber);

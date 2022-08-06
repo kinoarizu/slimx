@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:core/utils/urls.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/movie.dart';
@@ -37,8 +37,7 @@ class MinimalDetail extends StatelessWidget {
                       placeholder: (context, url) => const Center(
                         child: CircularProgressIndicator(),
                       ),
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
+                      errorWidget: (context, url, error) => const Icon(Icons.error),
                     ),
                   ),
                 ),
@@ -75,11 +74,9 @@ class MinimalDetail extends StatelessWidget {
                                     size: 20.0,
                                   ),
                                   style: TextButton.styleFrom(
-                                    backgroundColor:
-                                        Colors.white.withOpacity(0.2),
+                                    backgroundColor: Colors.white.withOpacity(0.2),
                                     shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(1000.0),
+                                      borderRadius: BorderRadius.circular(1000.0),
                                     ),
                                   ),
                                 ),
@@ -97,7 +94,7 @@ class MinimalDetail extends StatelessWidget {
                               vertical: 2.0,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.redAccent,
+                              color: kIndigo,
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                             child: Text(movie.releaseDate!.split('-')[0]),
@@ -109,9 +106,7 @@ class MinimalDetail extends StatelessWidget {
                             size: 18.0,
                           ),
                           const SizedBox(width: 4.0),
-                          Text(
-                            (movie.voteAverage! / 2).toStringAsFixed(1),
-                          ),
+                          Text((movie.voteAverage! / 2).toStringAsFixed(1)),
                         ],
                       ),
                       const SizedBox(height: 8.0),

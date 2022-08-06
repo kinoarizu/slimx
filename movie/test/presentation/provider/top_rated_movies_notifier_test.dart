@@ -20,9 +20,9 @@ void main() {
     listenerCallCount = 0;
     mockGetTopRatedMovies = MockGetTopRatedMovies();
     notifier = TopRatedMoviesNotifier(getTopRatedMovies: mockGetTopRatedMovies)
-      ..addListener(() {
-        listenerCallCount++;
-      });
+    ..addListener(() {
+      listenerCallCount++;
+    });
   });
 
   final tMovie = Movie(
@@ -44,7 +44,7 @@ void main() {
     () async {
       // arrange
       when(mockGetTopRatedMovies.execute())
-          .thenAnswer((_) async => Right(tMovieList));
+        .thenAnswer((_) async => Right(tMovieList));
 
       // act
       notifier.fetchTopRatedMovies();
@@ -60,7 +60,7 @@ void main() {
     () async {
       // arrange
       when(mockGetTopRatedMovies.execute())
-          .thenAnswer((_) async => Right(tMovieList));
+        .thenAnswer((_) async => Right(tMovieList));
 
       // act
       await notifier.fetchTopRatedMovies();
@@ -77,7 +77,7 @@ void main() {
     () async {
       // arrange
       when(mockGetTopRatedMovies.execute())
-          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
       // act
       await notifier.fetchTopRatedMovies();

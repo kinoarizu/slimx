@@ -21,7 +21,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.insertMovieWatchlist(testMovieTable))
-            .thenAnswer((_) async => 1);
+          .thenAnswer((_) async => 1);
 
         // act
         final result = await dataSource.insertWatchlist(testMovieTable);
@@ -36,7 +36,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.insertMovieWatchlist(testMovieTable))
-            .thenThrow(Exception());
+          .thenThrow(Exception());
 
         // act
         final call = dataSource.insertWatchlist(testMovieTable);
@@ -53,7 +53,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.removeMovieWatchlist(testMovieTable))
-            .thenAnswer((_) async => 1);
+          .thenAnswer((_) async => 1);
 
         // act
         final result = await dataSource.removeWatchlist(testMovieTable);
@@ -68,7 +68,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.removeMovieWatchlist(testMovieTable))
-            .thenThrow(Exception());
+          .thenThrow(Exception());
 
         // act
         final call = dataSource.removeWatchlist(testMovieTable);
@@ -85,7 +85,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.getWatchlistMovies())
-            .thenAnswer((_) async => [testMovieMap]);
+          .thenAnswer((_) async => [testMovieMap]);
 
         // act
         final result = await dataSource.getWatchlistMovies();
@@ -104,7 +104,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.getMovieById(tId))
-            .thenAnswer((_) async => testMovieMap);
+          .thenAnswer((_) async => testMovieMap);
 
         // act
         final result = await dataSource.getMovieById(tId);
@@ -119,7 +119,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.getMovieById(tId))
-            .thenAnswer((_) async => null);
+          .thenAnswer((_) async => null);
 
         // act
         final result = await dataSource.getMovieById(tId);

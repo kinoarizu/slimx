@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/widgets/item_card_list.dart';
+
 import '../bloc/search_bloc.dart';
 
 class MovieSearchPage extends StatelessWidget {
@@ -21,6 +22,7 @@ class MovieSearchPage extends StatelessWidget {
           children: [
             TextField(
               key: const Key('enterMovieQuery'),
+              autocorrect: false,
               onChanged: (query) {
                 context.read<MovieSearchBloc>().add(OnQueryChanged(query));
               },

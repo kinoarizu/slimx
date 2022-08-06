@@ -22,7 +22,7 @@ void main() {
     () async {
       // arrange
       when(mockTvRepository.getPopularTvs())
-          .thenAnswer((_) async => Right(tTvs));
+        .thenAnswer((_) async => Right(tTvs));
 
       // act
       final result = await usecase.execute();

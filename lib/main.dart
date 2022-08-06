@@ -112,7 +112,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: kRichBlack,
           textTheme: kTextTheme,
           colorScheme: kColorScheme.copyWith(
-            secondary: Colors.redAccent,
+            secondary: kIndigo,
           ),
         ),
         home: const HomePage(),
@@ -156,7 +156,8 @@ class MyApp extends StatelessWidget {
                     child: Text('Page not found :('),
                   ),
                 );
-              });
+              }
+            );
           }
         },
       ),

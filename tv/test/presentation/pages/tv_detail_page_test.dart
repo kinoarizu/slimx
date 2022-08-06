@@ -43,10 +43,8 @@ void main() {
       when(mockNotifier.tv).thenReturn(testTvDetail);
       when(mockNotifier.recommendationsState).thenReturn(RequestState.loaded);
       when(mockNotifier.recommendations).thenReturn(<Tv>[]);
-      when(mockTvSeasonEpisodesNotifier.seasonEpisodesState)
-          .thenReturn(RequestState.loaded);
-      when(mockTvSeasonEpisodesNotifier.seasonEpisodes)
-          .thenReturn(<TvSeasonEpisode>[]);
+      when(mockTvSeasonEpisodesNotifier.seasonEpisodesState).thenReturn(RequestState.loaded);
+      when(mockTvSeasonEpisodesNotifier.seasonEpisodes).thenReturn(<TvSeasonEpisode>[]);
       when(mockNotifier.isAddedToWatchlist).thenReturn(false);
 
       // act
@@ -71,10 +69,8 @@ void main() {
       when(mockNotifier.tv).thenReturn(testTvDetail);
       when(mockNotifier.recommendationsState).thenReturn(RequestState.loaded);
       when(mockNotifier.recommendations).thenReturn(<Tv>[]);
-      when(mockTvSeasonEpisodesNotifier.seasonEpisodesState)
-          .thenReturn(RequestState.loaded);
-      when(mockTvSeasonEpisodesNotifier.seasonEpisodes)
-          .thenReturn(<TvSeasonEpisode>[]);
+      when(mockTvSeasonEpisodesNotifier.seasonEpisodesState).thenReturn(RequestState.loaded);
+      when(mockTvSeasonEpisodesNotifier.seasonEpisodes).thenReturn(<TvSeasonEpisode>[]);
       when(mockNotifier.isAddedToWatchlist).thenReturn(true);
 
       // act
@@ -99,10 +95,8 @@ void main() {
       when(mockNotifier.tv).thenReturn(testTvDetail);
       when(mockNotifier.recommendationsState).thenReturn(RequestState.loaded);
       when(mockNotifier.recommendations).thenReturn(<Tv>[]);
-      when(mockTvSeasonEpisodesNotifier.seasonEpisodesState)
-          .thenReturn(RequestState.loaded);
-      when(mockTvSeasonEpisodesNotifier.seasonEpisodes)
-          .thenReturn(<TvSeasonEpisode>[]);
+      when(mockTvSeasonEpisodesNotifier.seasonEpisodesState).thenReturn(RequestState.loaded);
+      when(mockTvSeasonEpisodesNotifier.seasonEpisodes).thenReturn(<TvSeasonEpisode>[]);
       when(mockNotifier.isAddedToWatchlist).thenReturn(false);
       when(mockNotifier.watchlistMessage).thenReturn('Added to watchlist');
 
@@ -136,10 +130,8 @@ void main() {
       when(mockNotifier.tv).thenReturn(testTvDetail);
       when(mockNotifier.recommendationsState).thenReturn(RequestState.loaded);
       when(mockNotifier.recommendations).thenReturn(<Tv>[]);
-      when(mockTvSeasonEpisodesNotifier.seasonEpisodesState)
-          .thenReturn(RequestState.loaded);
-      when(mockTvSeasonEpisodesNotifier.seasonEpisodes)
-          .thenReturn(<TvSeasonEpisode>[]);
+      when(mockTvSeasonEpisodesNotifier.seasonEpisodesState).thenReturn(RequestState.loaded);
+      when(mockTvSeasonEpisodesNotifier.seasonEpisodes).thenReturn(<TvSeasonEpisode>[]);
       when(mockNotifier.isAddedToWatchlist).thenReturn(false);
       when(mockNotifier.watchlistMessage).thenReturn('Failed');
 

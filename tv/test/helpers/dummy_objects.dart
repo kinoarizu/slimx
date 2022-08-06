@@ -11,8 +11,7 @@ final testTv = Tv(
   genreIds: const [16, 10765, 10759, 18],
   id: 94605,
   name: 'Arcane',
-  overview:
-      'Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.',
+  overview: 'Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.',
   posterPath: '/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg',
   voteAverage: 9.1,
   voteCount: 1451,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv/presentation/widgets/item_card_list.dart';
+
 import '../bloc/search_bloc.dart';
 
 class TvSearchPage extends StatelessWidget {
@@ -21,6 +22,7 @@ class TvSearchPage extends StatelessWidget {
           children: [
             TextField(
               key: const Key('enterTvQuery'),
+              autocorrect: false,
               onChanged: (query) {
                 context.read<TvSearchBloc>().add(OnQueryChanged(query));
               },

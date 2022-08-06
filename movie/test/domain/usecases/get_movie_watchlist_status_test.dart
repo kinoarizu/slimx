@@ -20,7 +20,7 @@ void main() {
     () async {
       // arrange
       when(mockMovieRepository.isAddedToWatchlist(1))
-          .thenAnswer((_) async => true);
+        .thenAnswer((_) async => true);
 
       // act
       final result = await usecase.execute(1);

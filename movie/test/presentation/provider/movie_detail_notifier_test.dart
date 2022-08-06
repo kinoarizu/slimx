@@ -45,8 +45,8 @@ void main() {
       saveWatchlist: mockSaveWatchlist,
       removeWatchlist: mockRemoveWatchlist,
     )..addListener(() {
-        listenerCallCount++;
-      });
+      listenerCallCount++;
+    });
   });
 
   const tId = 1;
@@ -67,9 +67,10 @@ void main() {
 
   void _arrangeUsecase() {
     when(mockGetMovieDetail.execute(tId))
-        .thenAnswer((_) async => const Right(testMovieDetail));
+      .thenAnswer((_) async => const Right(testMovieDetail));
+
     when(mockGetMovieRecommendations.execute(tId))
-        .thenAnswer((_) async => Right(tMovies));
+      .thenAnswer((_) async => Right(tMovies));
   }
 
   group('movie detail', () {
@@ -137,9 +138,10 @@ void main() {
     test('should return server failure when error', () async {
       // arrange
       when(mockGetMovieDetail.execute(tId))
-          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+
       when(mockGetMovieRecommendations.execute(tId))
-          .thenAnswer((_) async => Right(tMovies));
+        .thenAnswer((_) async => Right(tMovies));
 
       // act
       await provider.fetchMovieDetail(tId);
@@ -187,9 +189,10 @@ void main() {
       () async {
         // arrange
         when(mockGetMovieDetail.execute(tId))
-            .thenAnswer((_) async => const Right(testMovieDetail));
+          .thenAnswer((_) async => const Right(testMovieDetail));
+
         when(mockGetMovieRecommendations.execute(tId))
-            .thenAnswer((_) async => const Left(ServerFailure('Failed')));
+          .thenAnswer((_) async => const Left(ServerFailure('Failed')));
 
         // act
         await provider.fetchMovieDetail(tId);
@@ -221,9 +224,10 @@ void main() {
       () async {
         // arrange
         when(mockSaveWatchlist.execute(testMovieDetail))
-            .thenAnswer((_) async => const Right('Success'));
+          .thenAnswer((_) async => const Right('Success'));
+
         when(mockGetWatchlistStatus.execute(testMovieDetail.id))
-            .thenAnswer((_) async => true);
+          .thenAnswer((_) async => true);
 
         // act
         await provider.addToWatchlist(testMovieDetail);
@@ -238,9 +242,10 @@ void main() {
       () async {
         // arrange
         when(mockRemoveWatchlist.execute(testMovieDetail))
-            .thenAnswer((_) async => const Right('Removed'));
+          .thenAnswer((_) async => const Right('Removed'));
+
         when(mockGetWatchlistStatus.execute(testMovieDetail.id))
-            .thenAnswer((_) async => false);
+          .thenAnswer((_) async => false);
 
         // act
         await provider.removeFromWatchlist(testMovieDetail);
@@ -255,9 +260,10 @@ void main() {
       () async {
         // arrange
         when(mockSaveWatchlist.execute(testMovieDetail))
-            .thenAnswer((_) async => const Right('Added to watchlist'));
+          .thenAnswer((_) async => const Right('Added to watchlist'));
+
         when(mockGetWatchlistStatus.execute(testMovieDetail.id))
-            .thenAnswer((_) async => true);
+          .thenAnswer((_) async => true);
 
         // act
         await provider.addToWatchlist(testMovieDetail);
@@ -275,9 +281,10 @@ void main() {
       () async {
         // arrange
         when(mockSaveWatchlist.execute(testMovieDetail))
-            .thenAnswer((_) async => const Left(DatabaseFailure('Failed')));
+          .thenAnswer((_) async => const Left(DatabaseFailure('Failed')));
+          
         when(mockGetWatchlistStatus.execute(testMovieDetail.id))
-            .thenAnswer((_) async => false);
+          .thenAnswer((_) async => false);
 
         // act
         await provider.addToWatchlist(testMovieDetail);

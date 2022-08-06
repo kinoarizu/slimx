@@ -20,9 +20,9 @@ void main() {
     listenerCallCount = 0;
     mockGetPopularMovies = MockGetPopularMovies();
     notifier = PopularMoviesNotifier(mockGetPopularMovies)
-      ..addListener(() {
-        listenerCallCount++;
-      });
+    ..addListener(() {
+      listenerCallCount++;
+    });
   });
 
   final tMovie = Movie(
@@ -44,7 +44,7 @@ void main() {
     () async {
       // arrange
       when(mockGetPopularMovies.execute())
-          .thenAnswer((_) async => Right(tMovieList));
+        .thenAnswer((_) async => Right(tMovieList));
 
       // act
       notifier.fetchPopularMovies();
@@ -60,7 +60,7 @@ void main() {
     () async {
       // arrange
       when(mockGetPopularMovies.execute())
-          .thenAnswer((_) async => Right(tMovieList));
+        .thenAnswer((_) async => Right(tMovieList));
 
       // act
       await notifier.fetchPopularMovies();
@@ -77,7 +77,7 @@ void main() {
     () async {
       // arrange
       when(mockGetPopularMovies.execute())
-          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
       // act
       await notifier.fetchPopularMovies();

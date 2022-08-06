@@ -21,7 +21,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.insertTvWatchlist(testTvTable))
-            .thenAnswer((_) async => 1);
+          .thenAnswer((_) async => 1);
 
         // act
         final result = await dataSource.insertWatchlist(testTvTable);
@@ -36,7 +36,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.insertTvWatchlist(testTvTable))
-            .thenThrow(Exception());
+          .thenThrow(Exception());
 
         // act
         final call = dataSource.insertWatchlist(testTvTable);
@@ -53,7 +53,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.removeTvWatchlist(testTvTable))
-            .thenAnswer((_) async => 1);
+          .thenAnswer((_) async => 1);
 
         // act
         final result = await dataSource.removeWatchlist(testTvTable);
@@ -68,7 +68,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.removeTvWatchlist(testTvTable))
-            .thenThrow(Exception());
+          .thenThrow(Exception());
 
         // act
         final call = dataSource.removeWatchlist(testTvTable);
@@ -85,7 +85,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.getWatchlistTvs())
-            .thenAnswer((_) async => [testTvMap]);
+          .thenAnswer((_) async => [testTvMap]);
 
         // act
         final result = await dataSource.getWatchlistTvs();
@@ -104,7 +104,7 @@ void main() {
       () async {
         // arrange
         when(mockDatabaseHelper.getTvById(tId))
-            .thenAnswer((_) async => testTvMap);
+          .thenAnswer((_) async => testTvMap);
 
         // act
         final result = await dataSource.getTvById(tId);

@@ -20,9 +20,9 @@ void main() {
     listenerCallCount = 0;
     mockGetTvImages = MockGetTvImages();
     provider = TvImagesNotifier(getTvImages: mockGetTvImages)
-      ..addListener(() {
-        listenerCallCount++;
-      });
+    ..addListener(() {
+      listenerCallCount++;
+    });
   });
 
   const tId = 1;
@@ -40,7 +40,7 @@ void main() {
       () async {
         // arrange
         when(mockGetTvImages.execute(tId))
-            .thenAnswer((_) async => const Right(testImages));
+          .thenAnswer((_) async => const Right(testImages));
 
         // act
         await provider.fetchTvImages(tId);
@@ -53,7 +53,7 @@ void main() {
     test('should change state to loading when the usecase is called', () {
       // arrange
       when(mockGetTvImages.execute(tId))
-          .thenAnswer((_) async => const Right(testImages));
+        .thenAnswer((_) async => const Right(testImages));
 
       // act
       provider.fetchTvImages(tId);
@@ -68,7 +68,7 @@ void main() {
       () async {
         // arrange
         when(mockGetTvImages.execute(tId))
-            .thenAnswer((_) async => const Right(testImages));
+          .thenAnswer((_) async => const Right(testImages));
 
         // act
         await provider.fetchTvImages(tId);
@@ -84,8 +84,8 @@ void main() {
       'should return server failure when error',
       () async {
         // arrange
-        when(mockGetTvImages.execute(tId)).thenAnswer(
-            (_) async => const Left(ServerFailure('Server failure')));
+        when(mockGetTvImages.execute(tId))
+          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
         // act
         await provider.fetchTvImages(tId);

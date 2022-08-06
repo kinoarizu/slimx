@@ -35,14 +35,14 @@ class Movie extends Equatable {
 
   @override
   List<Object?> get props => [
-        backdropPath,
-        genreIds,
-        id,
-        overview,
-        posterPath,
-        releaseDate,
-        title,
-        voteAverage,
-        voteCount,
-      ];
+    backdropPath,
+    genreIds,
+    id,
+    overview,
+    posterPath,
+    releaseDate,
+    title,
+    voteAverage,
+    voteCount,
+  ];
 }

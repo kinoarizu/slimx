@@ -31,9 +31,8 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.nowPlayingMovies))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/now_playing_movie.json'),
-                200));
+          (_) async => http.Response(readJson('helpers/dummy_responses/now_playing_movie.json'), 200),
+        );
 
         // act
         final result = await dataSource.getNowPlayingMovies();
@@ -48,7 +47,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.nowPlayingMovies)))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getNowPlayingMovies();
@@ -61,8 +60,7 @@ void main() {
 
   group('get popular movies', () {
     final tMovieList = MovieResponse.fromJson(
-      json.decode(
-          readJson('helpers/dummy_responses/popular_top_rated_movie.json')),
+      json.decode(readJson('helpers/dummy_responses/popular_top_rated_movie.json')),
     ).movieList;
 
     test(
@@ -70,10 +68,8 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.popularMovies))).thenAnswer(
-            (_) async => http.Response(
-                readJson(
-                    'helpers/dummy_responses/popular_top_rated_movie.json'),
-                200));
+          (_) async => http.Response(readJson('helpers/dummy_responses/popular_top_rated_movie.json'), 200),
+        );
 
         // act
         final result = await dataSource.getPopularMovies();
@@ -84,24 +80,24 @@ void main() {
     );
 
     test(
-        'should throw a server exception when the response code is 404 or other',
-        () async {
-      // arrange
-      when(mockHttpClient.get(Uri.parse(Urls.popularMovies)))
+      'should throw a server exception when the response code is 404 or other',
+      () async {
+        // arrange
+        when(mockHttpClient.get(Uri.parse(Urls.popularMovies)))
           .thenAnswer((_) async => http.Response('Not found', 404));
 
-      // act
-      final call = dataSource.getPopularMovies();
+        // act
+        final call = dataSource.getPopularMovies();
 
-      // assert
-      expect(() => call, throwsA(isA<ServerException>()));
-    });
+        // assert
+        expect(() => call, throwsA(isA<ServerException>()));
+      }
+    );
   });
 
   group('get top rated movies', () {
     final tMovieList = MovieResponse.fromJson(
-      json.decode(
-          readJson('helpers/dummy_responses/popular_top_rated_movie.json')),
+      json.decode(readJson('helpers/dummy_responses/popular_top_rated_movie.json')),
     ).movieList;
 
     test(
@@ -109,10 +105,8 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.topRatedMovies))).thenAnswer(
-            (_) async => http.Response(
-                readJson(
-                    'helpers/dummy_responses/popular_top_rated_movie.json'),
-                200));
+          (_) async => http.Response(readJson('helpers/dummy_responses/popular_top_rated_movie.json'), 200)
+        );
 
         // act
         final result = await dataSource.getTopRatedMovies();
@@ -127,7 +121,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.topRatedMovies)))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getTopRatedMovies();
@@ -149,8 +143,8 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.movieDetail(tId)))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/movie_detail.json'), 200));
+          (_) async => http.Response(readJson('helpers/dummy_responses/movie_detail.json'), 200)
+        );
 
         // act
         final result = await dataSource.getMovieDetail(tId);
@@ -165,7 +159,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.movieDetail(tId))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getMovieDetail(tId);
@@ -179,18 +173,16 @@ void main() {
   group('get movie recommendations', () {
     const tId = 1;
     final tMovieList = MovieResponse.fromJson(
-      json.decode(
-          readJson('helpers/dummy_responses/movie_recommendations.json')),
+      json.decode(readJson('helpers/dummy_responses/movie_recommendations.json')),
     ).movieList;
 
     test(
       'should return list of movie model when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse(Urls.movieRecommendations(tId))))
-            .thenAnswer((_) async => http.Response(
-                readJson('helpers/dummy_responses/movie_recommendations.json'),
-                200));
+        when(mockHttpClient.get(Uri.parse(Urls.movieRecommendations(tId)))).thenAnswer(
+          (_) async => http.Response(readJson('helpers/dummy_responses/movie_recommendations.json'), 200)
+        );
 
         // act
         final result = await dataSource.getMovieRecommendations(tId);
@@ -205,7 +197,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.movieRecommendations(tId))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getMovieRecommendations(tId);
@@ -226,9 +218,9 @@ void main() {
       'should return list of movie model when the response code is 200',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse(Urls.searchMovies(tQuery))))
-            .thenAnswer((_) async => http.Response(
-                readJson('helpers/dummy_responses/search_movie.json'), 200));
+        when(mockHttpClient.get(Uri.parse(Urls.searchMovies(tQuery)))).thenAnswer(
+          (_) async => http.Response(readJson('helpers/dummy_responses/search_movie.json'), 200)
+        );
 
         // act
         final result = await dataSource.searchMovies(tQuery);
@@ -243,7 +235,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.searchMovies(tQuery))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.searchMovies(tQuery);
@@ -265,8 +257,8 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.movieImages(tId)))).thenAnswer(
-            (_) async => http.Response(
-                readJson('helpers/dummy_responses/images.json'), 200));
+          (_) async => http.Response(readJson('helpers/dummy_responses/images.json'), 200)
+        );
 
         // act
         final result = await dataSource.getMovieImages(tId);
@@ -281,7 +273,7 @@ void main() {
       () async {
         // arrange
         when(mockHttpClient.get(Uri.parse(Urls.movieImages(tId))))
-            .thenAnswer((_) async => http.Response('Not found', 404));
+          .thenAnswer((_) async => http.Response('Not found', 404));
 
         // act
         final call = dataSource.getMovieImages(tId);

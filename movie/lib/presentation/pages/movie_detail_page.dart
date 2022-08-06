@@ -27,11 +27,13 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   @override
   void initState() {
     super.initState();
+
     Future.microtask(() {
       Provider.of<MovieDetailNotifier>(context, listen: false)
-          .fetchMovieDetail(widget.id);
+      .fetchMovieDetail(widget.id);
+
       Provider.of<MovieDetailNotifier>(context, listen: false)
-          .loadWatchlistStatus(widget.id);
+      .loadWatchlistStatus(widget.id);
     });
   }
 
@@ -187,26 +189,21 @@ class MovieDetailContent extends StatelessWidget {
                     key: const Key('movieToWatchlist'),
                     onPressed: () async {
                       if (!isAddedToWatchlist) {
-                        await Provider.of<MovieDetailNotifier>(context,
-                                listen: false)
-                            .addToWatchlist(movie);
+                        await Provider.of<MovieDetailNotifier>(context, listen: false)
+                        .addToWatchlist(movie);
                       } else {
-                        await Provider.of<MovieDetailNotifier>(context,
-                                listen: false)
-                            .removeFromWatchlist(movie);
+                        await Provider.of<MovieDetailNotifier>(context, listen: false)
+                        .removeFromWatchlist(movie);
                       }
 
-                      final message = Provider.of<MovieDetailNotifier>(context,
-                              listen: false)
-                          .watchlistMessage;
+                      final message = Provider.of<MovieDetailNotifier>(context, listen: false)
+                      .watchlistMessage;
 
-                      if (message ==
-                              MovieDetailNotifier.watchlistAddSuccessMessage ||
-                          message ==
-                              MovieDetailNotifier
-                                  .watchlistRemoveSuccessMessage) {
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(SnackBar(content: Text(message)));
+                      if (message == MovieDetailNotifier.watchlistAddSuccessMessage || 
+                      message == MovieDetailNotifier .watchlistRemoveSuccessMessage) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(message)),
+                        );
                       } else {
                         showDialog(
                           context: context,
@@ -222,24 +219,23 @@ class MovieDetailContent extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         isAddedToWatchlist
-                            ? const Icon(Icons.check, color: Colors.white)
-                            : const Icon(Icons.add, color: Colors.black),
+                        ? const Icon(Icons.check, color: Colors.white)
+                        : const Icon(Icons.add, color: Colors.black),
                         const SizedBox(width: 16.0),
                         Text(
                           isAddedToWatchlist
-                              ? 'Added to watchlist'
-                              : 'Add to watchlist',
+                          ? 'Added to watchlist'
+                          : 'Add to watchlist',
                           style: TextStyle(
                             color: isAddedToWatchlist
-                                ? Colors.white
-                                : Colors.black,
+                            ? Colors.white
+                            : Colors.black,
                           ),
                         ),
                       ],
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary:
-                          isAddedToWatchlist ? Colors.grey[850] : Colors.white,
+                      primary: isAddedToWatchlist ? Colors.grey[850] : Colors.white,
                       minimumSize: Size(
                         MediaQuery.of(context).size.width,
                         42.0,
@@ -365,8 +361,7 @@ class MovieDetailContent extends StatelessWidget {
                           baseColor: Colors.grey[850]!,
                           highlightColor: Colors.grey[800]!,
                         ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
                         height: 180.0,
                         fit: BoxFit.cover,
                       ),
@@ -380,17 +375,13 @@ class MovieDetailContent extends StatelessWidget {
               mainAxisSpacing: 8.0,
               crossAxisSpacing: 8.0,
               childAspectRatio: 0.7,
-              crossAxisCount:
-                  (MediaQuery.of(context).orientation == Orientation.portrait)
-                      ? 3
-                      : 4,
+              crossAxisCount: (MediaQuery.of(context).orientation == Orientation.portrait) ? 3 : 4,
             ),
           );
         } else if (data.recommendationsState == RequestState.error) {
           return SliverToBoxAdapter(child: Center(child: Text(data.message)));
         } else {
-          return const SliverToBoxAdapter(
-              child: Center(child: CircularProgressIndicator()));
+          return const SliverToBoxAdapter(child: Center(child: CircularProgressIndicator()));
         }
       },
     );

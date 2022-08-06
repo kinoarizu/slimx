@@ -34,8 +34,8 @@ void main() {
       getPopularMovies: mockGetPopularMovies,
       getTopRatedMovies: mockGetTopRatedMovies,
     )..addListener(() {
-        listenerCallCount++;
-      });
+      listenerCallCount++;
+    });
   });
 
   final tMovie = Movie(
@@ -65,7 +65,7 @@ void main() {
       () async {
         // arrange
         when(mockGetNowPlayingMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         provider.fetchNowPlayingMovies();
@@ -80,7 +80,7 @@ void main() {
       () {
         // arrange
         when(mockGetNowPlayingMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         provider.fetchNowPlayingMovies();
@@ -95,7 +95,7 @@ void main() {
       () async {
         // arrange
         when(mockGetNowPlayingMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         await provider.fetchNowPlayingMovies();
@@ -111,8 +111,8 @@ void main() {
       'should return server failure when error',
       () async {
         // arrange
-        when(mockGetNowPlayingMovies.execute()).thenAnswer(
-            (_) async => const Left(ServerFailure('Server failure')));
+        when(mockGetNowPlayingMovies.execute())
+          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
         // act
         await provider.fetchNowPlayingMovies();
@@ -138,7 +138,7 @@ void main() {
       () async {
         // arrange
         when(mockGetPopularMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         provider.fetchPopularMovies();
@@ -153,7 +153,7 @@ void main() {
       () {
         // arrange
         when(mockGetPopularMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         provider.fetchPopularMovies();
@@ -168,7 +168,7 @@ void main() {
       () async {
         // arrange
         when(mockGetPopularMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         await provider.fetchPopularMovies();
@@ -184,8 +184,8 @@ void main() {
       'should return server failure when error',
       () async {
         // arrange
-        when(mockGetPopularMovies.execute()).thenAnswer(
-            (_) async => const Left(ServerFailure('Server failure')));
+        when(mockGetPopularMovies.execute())
+          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
         // act
         await provider.fetchPopularMovies();
@@ -211,7 +211,7 @@ void main() {
       () async {
         // arrange
         when(mockGetTopRatedMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         provider.fetchTopRatedMovies();
@@ -226,7 +226,7 @@ void main() {
       () {
         // arrange
         when(mockGetTopRatedMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         provider.fetchTopRatedMovies();
@@ -241,7 +241,7 @@ void main() {
       () async {
         // arrange
         when(mockGetTopRatedMovies.execute())
-            .thenAnswer((_) async => Right(tMovieList));
+          .thenAnswer((_) async => Right(tMovieList));
 
         // act
         await provider.fetchTopRatedMovies();
@@ -257,8 +257,8 @@ void main() {
       'should return server failure when error',
       () async {
         // arrange
-        when(mockGetTopRatedMovies.execute()).thenAnswer(
-            (_) async => const Left(ServerFailure('Server failure')));
+        when(mockGetTopRatedMovies.execute())
+          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
 
         // act
         await provider.fetchTopRatedMovies();

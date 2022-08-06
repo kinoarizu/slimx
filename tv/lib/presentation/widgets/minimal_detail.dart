@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:core/utils/urls.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/tv.dart';
@@ -99,7 +99,7 @@ class MinimalDetail extends StatelessWidget {
                               vertical: 2.0,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.redAccent,
+                              color: kIndigo,
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                             child: Text(tv.firstAirDate!.split('-')[0]),

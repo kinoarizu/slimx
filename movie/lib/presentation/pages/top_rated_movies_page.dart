@@ -19,9 +19,11 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   @override
   void initState() {
     super.initState();
+    
     Future.microtask(() =>
-        Provider.of<TopRatedMoviesNotifier>(context, listen: false)
-            .fetchTopRatedMovies());
+      Provider.of<TopRatedMoviesNotifier>(context, listen: false)
+      .fetchTopRatedMovies(),
+    );
   }
 
   @override

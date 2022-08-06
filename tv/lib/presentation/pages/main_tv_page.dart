@@ -1,8 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:core/utils/state_enum.dart';
-import 'package:core/utils/urls.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -125,7 +124,7 @@ class _MainTvPageState extends State<MainTvPage> {
                                         children: [
                                           const Icon(
                                             Icons.circle,
-                                            color: Colors.redAccent,
+                                            color: kIndigo,
                                             size: 16.0,
                                           ),
                                           const SizedBox(width: 4.0),
