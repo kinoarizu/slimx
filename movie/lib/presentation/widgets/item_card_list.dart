@@ -80,7 +80,7 @@ class ItemCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 4.0),
                       Text(
-                        (movie.voteAverage! / 2).toStringAsFixed(1),
+                        movie.voteAverage?.toStringAsFixed(2) ?? '0',
                       ),
                     ],
                   ),

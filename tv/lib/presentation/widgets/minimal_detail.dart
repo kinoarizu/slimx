@@ -112,7 +112,7 @@ class MinimalDetail extends StatelessWidget {
                           ),
                           const SizedBox(width: 4.0),
                           Text(
-                            (tv.voteAverage! / 2).toStringAsFixed(1),
+                            tv.voteAverage?.toStringAsFixed(1) ?? '0',
                           ),
                         ],
                       ),

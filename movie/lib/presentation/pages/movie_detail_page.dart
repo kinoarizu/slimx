@@ -154,7 +154,7 @@ class MovieDetailContent extends StatelessWidget {
                           ),
                           const SizedBox(width: 4.0),
                           Text(
-                            (movie.voteAverage / 2).toStringAsFixed(1),
+                            movie.voteAverage.toStringAsFixed(2),
                             style: const TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.w500,

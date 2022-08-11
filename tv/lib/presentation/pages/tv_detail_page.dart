@@ -176,7 +176,7 @@ class _TvDetailContentState extends State<TvDetailContent>
                           ),
                           const SizedBox(width: 4.0),
                           Text(
-                            (widget.tv.voteAverage / 2).toStringAsFixed(1),
+                            widget.tv.voteAverage.toStringAsFixed(2),
                             style: const TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.w500,

@@ -106,7 +106,7 @@ class MinimalDetail extends StatelessWidget {
                             size: 18.0,
                           ),
                           const SizedBox(width: 4.0),
-                          Text((movie.voteAverage! / 2).toStringAsFixed(1)),
+                          Text(movie.voteAverage?.toStringAsFixed(2) ?? '0'),
                         ],
                       ),
                       const SizedBox(height: 8.0),
