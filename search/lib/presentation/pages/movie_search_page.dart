@@ -27,7 +27,7 @@ class MovieSearchPage extends StatelessWidget {
                 context.read<MovieSearchBloc>().add(OnQueryChanged(query));
               },
               decoration: InputDecoration(
-                hintText: 'Search movies',
+                hintText: 'Search Movies',
                 prefixIcon: const Icon(
                   Icons.search,
                   color: Colors.white70,
