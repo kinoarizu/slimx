@@ -271,7 +271,7 @@ class _TvDetailContentState extends State<TvDetailContent>
                       ],
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: widget.isAddedToWatchlist
+                      backgroundColor: widget.isAddedToWatchlist
                           ? Colors.grey[850]
                           : Colors.white,
                       minimumSize: Size(
