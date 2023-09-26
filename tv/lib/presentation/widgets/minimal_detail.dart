@@ -160,7 +160,7 @@ class MinimalDetail extends StatelessWidget {
                 ],
               ),
               style: TextButton.styleFrom(
-                primary: Colors.white,
+                backgroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16.0,
                   vertical: 16.0,
