@@ -31,17 +31,6 @@ class AboutPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(32.0),
-                  color: kRichBlack,
-                  child: const Text(
-                    'Movie Database (MDB) is a movie and tv series catalog app developed by Abu Aziz.',
-                    style: TextStyle(fontSize: 16.0),
-                    textAlign: TextAlign.justify,
-                  ),
-                ),
-              ),
             ],
           ),
         ],

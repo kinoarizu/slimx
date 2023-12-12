@@ -112,27 +112,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               ),
                             ),
                           ),
-                          const SizedBox(width: 16.0),
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Abu Aziz',
-                                  style: kHeading6.copyWith(
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                                Text(
-                                  'abuaziz@mail.co',
-                                  style: kBodyText.copyWith(
-                                    color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
                         ],
                       ),
                       const SizedBox(height: 32.0),

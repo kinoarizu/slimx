@@ -41,8 +41,6 @@ class Urls {
 * Advanced UI 🏙️
 * Modularity
 
-## 🔥 Contributing to [This project](https://github.com/abuazis/Flutter-Movies-Search)
-
 If you are currently learning Flutter development and want to start contributing to open source, let's get started! To contribute to this project, follow these steps:
 
 1. Fork this repository
