@@ -1,9 +1,7 @@
-# Flutter Movie Database
+# Slimx
 
 
-Movie Database app is a Flutter app project that allows users to search for a movie or tv series, see the detail, season & episode, and save watchlist. The movies and tv series data is gotten from https://www.themoviedb.org/
-
-![alt text](art/demo.gif)
+Slimx is a Flutter app project that allows users to search for a movie or tv series, see the detail, season & episode, and save watchlist. The movies and tv series data is gotten from https://www.themoviedb.org/
 
 ## Prerequisites
 
